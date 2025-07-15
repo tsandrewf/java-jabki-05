@@ -37,4 +37,10 @@ public class Wallet {
             this.money = money;
         }
     }
+
+    public void spend(int amount) {
+        if ((amount >= 0) && amount <= this.money) {
+            this.money -= amount;
+        }
+    }
 }

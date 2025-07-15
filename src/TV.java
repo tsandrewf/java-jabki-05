@@ -22,6 +22,6 @@ public class TV {
     }
 
     public void nextChannel() {
-        setCurrentChannel(Math.min(currentChannel + 1, 100));
+        setCurrentChannel(Math.min(this.currentChannel + 1, 100));
     }
 }

@@ -49,6 +49,15 @@ class MainTest {
 
         wallet.setMoney(-150);
         Assertions.assertEquals(money, wallet.getMoney());
+
+        wallet.spend((int)money + 50);
+        Assertions.assertEquals(money, wallet.getMoney());
+
+        wallet.spend(-50);
+        Assertions.assertEquals(money, wallet.getMoney());
+
+        wallet.spend(20);
+        Assertions.assertEquals(money - 20, wallet.getMoney());
     }
 
     @Test

@@ -22,6 +22,15 @@ public class Main {
 
             wallet.setMoney(-100);
             System.out.printf("Владелец: %s, баланс: %s\n", wallet.getOwner(), wallet.getMoney());
+
+            wallet.spend(10);
+            System.out.printf("Владелец: %s, баланс: %s\n", wallet.getOwner(), wallet.getMoney());
+
+            wallet.spend(-150);
+            System.out.printf("Владелец: %s, баланс: %s\n", wallet.getOwner(), wallet.getMoney());
+
+            wallet.spend(2000);
+            System.out.printf("Владелец: %s, баланс: %s\n", wallet.getOwner(), wallet.getMoney());
         }
 
         {

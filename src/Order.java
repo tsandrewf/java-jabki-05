@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Order {
     private static int orderIdMax = 0;
-    private int orderId;
+    private final int orderId;
     private OrderItem[] items;
     private double totalPrice;
 
