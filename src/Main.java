@@ -5,15 +5,6 @@ public class Main {
             Wallet wallet = new Wallet("Кант", 1000);
             System.out.printf("Владелец: %s, баланс: %s\n", wallet.getOwner(), wallet.getMoney());
 
-            wallet = new Wallet("Локк");
-            System.out.printf("Владелец: %s, баланс: %s\n", wallet.getOwner(), wallet.getMoney());
-
-            wallet = new Wallet(2000);
-            System.out.printf("Владелец: %s, баланс: %s\n", wallet.getOwner(), wallet.getMoney());
-
-            wallet = new Wallet();
-            System.out.printf("Владелец: %s, баланс: %s\n", wallet.getOwner(), wallet.getMoney());
-
             wallet.setMoney(1500);
             System.out.printf("Владелец: %s, баланс: %s\n", wallet.getOwner(), wallet.getMoney());
 
@@ -58,7 +49,7 @@ public class Main {
             tv.setVolume(25);
             System.out.printf("Телевизор. Текущий канал: %s, громкость: %s\n", tv.getCurrentChannel(), tv.getVolume());
 
-            tv.setCurrentChannel(99);
+            tv.setCurrentChannel(49);
             System.out.printf("Телевизор. Текущий канал: %s, громкость: %s\n", tv.getCurrentChannel(), tv.getVolume());
 
             tv.nextChannel();
@@ -72,29 +63,29 @@ public class Main {
             System.out.println();
             System.out.println("4) Система заказа:");
             Order order = new Order();
-            order.info();
+            order.getInfo();
 
             order.addItem("Первый товар", 100);
-            order.info();
+            order.getInfo();
 
             order.addItem("Второй товар", 200);
-            order.info();
+            order.getInfo();
 
             System.out.println();
             Order order2 = new Order();
-            order2.info();
+            order2.getInfo();
 
             order2.addItem("Третий товар", 300);
-            order2.info();
+            order2.getInfo();
 
             order2.addItem("Четвертый товар", 400);
-            order2.info();
+            order2.getInfo();
 
             order2.addItem("Пятый товар", 500);
-            order2.info();
+            order2.getInfo();
 
             order2.addItem("Шестой товар", -600);
-            order2.info();
+            order2.getInfo();
         }
     }
 }

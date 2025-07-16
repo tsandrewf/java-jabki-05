@@ -4,10 +4,7 @@ import org.junit.jupiter.api.Test;
 import java.io.PrintStream;
 import java.io.ByteArrayOutputStream;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class MainTest {
-    private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
     @BeforeEach
@@ -17,27 +14,11 @@ class MainTest {
 
     @Test
     void walletTest() {
-        final String ownerUnknown = "Неизвестный";
-
         String owner = "Аристотель";
         double money = 3000;
         Wallet wallet = new Wallet(owner, money);
         Assertions.assertEquals(owner, wallet.getOwner());
         Assertions.assertEquals(money, wallet.getMoney());
-
-        owner = "Аристотель";
-        wallet = new Wallet(owner);
-        Assertions.assertEquals(owner, wallet.getOwner());
-        Assertions.assertEquals(0, wallet.getMoney());
-
-        money = 3000;
-        wallet = new Wallet(money);
-        Assertions.assertEquals(ownerUnknown, wallet.getOwner());
-        Assertions.assertEquals(money, wallet.getMoney());
-
-        wallet = new Wallet();
-        Assertions.assertEquals(ownerUnknown, wallet.getOwner());
-        Assertions.assertEquals(0, wallet.getMoney());
 
         owner = "Аристотель";
         wallet.setOwner(owner);
@@ -76,7 +57,7 @@ class MainTest {
         tv.setCurrentChannel(-50);
         Assertions.assertEquals(currentChannel, tv.getCurrentChannel());
 
-        currentChannel = 99;
+        currentChannel = 49;
         tv.setCurrentChannel(currentChannel);
         Assertions.assertEquals(currentChannel, tv.getCurrentChannel());
 
@@ -84,7 +65,7 @@ class MainTest {
         Assertions.assertEquals(currentChannel, tv.getCurrentChannel());
 
         tv.nextChannel();
-        Assertions.assertEquals(currentChannel, tv.getCurrentChannel());
+        Assertions.assertEquals(1, tv.getCurrentChannel());
     }
 
     @Test
@@ -110,17 +91,17 @@ class MainTest {
     void orderTest() {
         Order order = new Order();
 
-        order.info();
+        order.getInfo();
         Assertions.assertEquals("Заказ 0\nСуммарная цена 0.0", outputStreamCaptor.toString().trim());
 
         outputStreamCaptor.reset();
         order.addItem("Товар", 1000);
-        order.info();
+        order.getInfo();
         Assertions.assertEquals("Заказ 0\nТовар: Товар, цена: 1000.0\nСуммарная цена 1000.0", outputStreamCaptor.toString().trim());
 
         outputStreamCaptor.reset();
         order.addItem("Еще товар", -500);
-        order.info();
+        order.getInfo();
         Assertions.assertEquals("Заказ 0\nТовар: Товар, цена: 1000.0\nТовар: Еще товар, цена: 0.0\nСуммарная цена 1000.0", outputStreamCaptor.toString().trim());
     }
 }

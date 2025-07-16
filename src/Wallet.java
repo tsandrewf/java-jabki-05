@@ -8,18 +8,6 @@ public class Wallet {
         this.money = Math.max(money, 0);
     }
 
-    public Wallet(String owner) {
-        this(owner, 0);
-    }
-
-    public Wallet(double money) {
-        this("Неизвестный", money);
-    }
-
-    public Wallet() {
-        this(0);
-    }
-
     public String getOwner() {
         return this.owner;
     }
@@ -33,7 +21,7 @@ public class Wallet {
     }
 
     public void setMoney(double money) {
-        if (0 <= money) {
+        if (money >= 0) {
             this.money = money;
         }
     }

@@ -18,7 +18,7 @@ public class Order {
         totalPrice += items[items.length - 1].getPrice();
     }
 
-    public void info() {
+    public void getInfo() {
         System.out.printf("Заказ %s\n", orderId);
         for (OrderItem item : items) {
             item.info();
